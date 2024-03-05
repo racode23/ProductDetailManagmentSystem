@@ -1,19 +1,34 @@
-﻿using ProductDetailManagmentSystem.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using ProductDetailManagmentSystem.Data;
+using ProductDetailManagmentSystem.Interfaces;
 using ProductDetailManagmentSystem.Models;
+using ProductDetailManagmentSystem.ViewModel;
 
 namespace ProductDetailManagmentSystem.Services
 {
     public class ProductService : IProductService
     {
-        public ProductService _productService;
-
-        public ProductService(ProductService productService)
+       
+        private readonly ProductDbContext _dbContext;
+        public ProductService(ProductDbContext dbContext)
         {
-           this._productService = productService;
+           this._dbContext = dbContext;
         }
-        public Product AddProduct(Product product)
-        {
-            throw new NotImplementedException();
+        public void AddProduct(ProductDetailVM product)
+        {  
+           //create new product object
+           var productObject = new Product();
+           
+           //Add new view product data to product object
+           productObject.Name = product.Name;
+           productObject.Description = product.Description;
+           productObject.Price = product.Price;
+            //Add product
+           var result =_dbContext.products.Add(productObject);
+
+            _dbContext.SaveChanges();
+           
+            
         }
 
         public void DeleteProduct(int id)
@@ -23,7 +38,8 @@ namespace ProductDetailManagmentSystem.Services
 
         public List<Product> getAllProducts()
         {
-            throw new NotImplementedException();
+           var Products= _dbContext.products.ToList();
+           return Products;
         }
 
         public Product getProductById(int id)

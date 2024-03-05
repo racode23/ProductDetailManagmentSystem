@@ -1,4 +1,5 @@
 ﻿using ProductDetailManagmentSystem.Models;
+using ProductDetailManagmentSystem.ViewModel;
 
 namespace ProductDetailManagmentSystem.Interfaces
 {
@@ -7,7 +8,7 @@ namespace ProductDetailManagmentSystem.Interfaces
         public List<Product> getAllProducts();
         public Product getProductById(int id);
 
-        public Product AddProduct(Product product);
+        public void AddProduct(ProductDetailVM product);
 
         public Product UpdateProduct(Product product);
 

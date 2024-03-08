@@ -23,5 +23,12 @@ namespace ProductDetailManagmentSystem.Controllers
              _productService.AddProduct(product);
              return Ok();
         }
+        [HttpGet]
+        public async Task<ActionResult> getAllProduct() { 
+        
+           var result =_productService.getAllProducts();
+            return Ok(result);
+        }
+        
     }
 }

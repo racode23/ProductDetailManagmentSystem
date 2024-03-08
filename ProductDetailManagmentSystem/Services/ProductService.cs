@@ -3,6 +3,7 @@ using ProductDetailManagmentSystem.Data;
 using ProductDetailManagmentSystem.Interfaces;
 using ProductDetailManagmentSystem.Models;
 using ProductDetailManagmentSystem.ViewModel;
+using System.Linq;
 
 namespace ProductDetailManagmentSystem.Services
 {
@@ -33,7 +34,7 @@ namespace ProductDetailManagmentSystem.Services
 
         public void DeleteProduct(int id)
         {
-            throw new NotImplementedException();
+            
         }
 
         public List<Product> getAllProducts()
@@ -44,7 +45,8 @@ namespace ProductDetailManagmentSystem.Services
 
         public Product getProductById(int id)
         {
-            throw new NotImplementedException();
+             Product product =  _dbContext.products.FirstOrDefault(m=>m.Id==id);
+             return product;
         }
 
         public Product UpdateProduct(Product product)

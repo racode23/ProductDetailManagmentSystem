@@ -29,6 +29,11 @@ namespace ProductDetailManagmentSystem.Controllers
            var result =_productService.getAllProducts();
             return Ok(result);
         }
-        
+        [HttpGet("{id}")]
+        public async Task<ActionResult> getProductbyId(int id) { 
+
+        var result = _productService.getProductById(id);
+            return Ok(result);
+        }
     }
 }

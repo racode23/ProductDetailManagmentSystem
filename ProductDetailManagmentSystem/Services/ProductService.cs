@@ -34,7 +34,9 @@ namespace ProductDetailManagmentSystem.Services
 
         public void DeleteProduct(int id)
         {
-            
+            var result = _dbContext.products.Find(id);
+            _dbContext.products.Remove(result);
+            _dbContext.SaveChanges();
         }
 
         public List<Product> getAllProducts()
@@ -45,7 +47,7 @@ namespace ProductDetailManagmentSystem.Services
 
         public Product getProductById(int id)
         {
-             Product product =  _dbContext.products.FirstOrDefault(m=>m.Id==id);
+             Product product = _dbContext.products.FirstOrDefault(m=>m.Id==id);
              return product;
         }
 

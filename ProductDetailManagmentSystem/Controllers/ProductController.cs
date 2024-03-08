@@ -35,5 +35,12 @@ namespace ProductDetailManagmentSystem.Controllers
         var result = _productService.getProductById(id);
             return Ok(result);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> deleteProduct(int id) { 
+        
+           _productService.DeleteProduct(id);
+           return Ok();
+        }
     }
 }

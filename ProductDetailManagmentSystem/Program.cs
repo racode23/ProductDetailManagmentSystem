@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using ProductDetailManagmentSystem.Data;
 using ProductDetailManagmentSystem.Interfaces;
 using ProductDetailManagmentSystem.Services;
@@ -13,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICustomerService,CustomerService>();
 
 
 var app = builder.Build();

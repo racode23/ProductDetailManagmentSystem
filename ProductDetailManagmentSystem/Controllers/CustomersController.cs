@@ -24,5 +24,14 @@ namespace ProductDetailManagmentSystem.Controllers
             return Ok();
 
         }
+
+
+        [HttpGet]
+        public async Task<ActionResult> getAllCustomers() {
+
+            var customers =customerService.GetAllCustomers();
+            return Ok(customers);
+
+        }
     }
 }

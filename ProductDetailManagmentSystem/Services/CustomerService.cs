@@ -32,7 +32,8 @@ namespace ProductDetailManagmentSystem.Services
 
         public List<Customer> GetAllCustomers()
         {
-            throw new NotImplementedException();
+            var Customers=DbContext.customer.ToList();
+            return Customers;
         }
 
         public Customer GetCustomerById(int id)

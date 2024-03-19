@@ -38,7 +38,8 @@ namespace ProductDetailManagmentSystem.Services
 
         public Customer GetCustomerById(int id)
         {
-            throw new NotImplementedException();
+            var customer =DbContext.customer.FirstOrDefault<Customer>(x=>x.Id==id);
+            return customer;
         }
 
         public void UpdateCustomer(Customer customer)

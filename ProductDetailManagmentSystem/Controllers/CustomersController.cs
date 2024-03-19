@@ -33,5 +33,11 @@ namespace ProductDetailManagmentSystem.Controllers
             return Ok(customers);
 
         }
+        [HttpGet("{id}")]
+        public async Task<ActionResult> getCustomer(int id) {
+            var customer = customerService.GetCustomerById(id);
+            return Ok(customer);
+        
+        }
     }
 }

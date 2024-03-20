@@ -27,7 +27,9 @@ namespace ProductDetailManagmentSystem.Services
 
         public void DeleteCustomer(int id)
         {
-            throw new NotImplementedException();
+            var customer=DbContext.customer.Find(id);
+            DbContext.customer.Remove(customer);
+            DbContext.SaveChanges();
         }
 
         public List<Customer> GetAllCustomers()

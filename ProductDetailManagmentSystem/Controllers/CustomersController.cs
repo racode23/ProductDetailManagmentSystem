@@ -19,7 +19,6 @@ namespace ProductDetailManagmentSystem.Controllers
         [HttpPost]
         public async Task<ActionResult> AddCustomer(CustomerVm customer)
         {
-
             customerService.CreateCustomer(customer);
             return Ok();
 
@@ -37,6 +36,12 @@ namespace ProductDetailManagmentSystem.Controllers
         public async Task<ActionResult> getCustomer(int id) {
             var customer = customerService.GetCustomerById(id);
             return Ok(customer);
+        
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> deleteCustomer(int id) {
+            customerService.DeleteCustomer(id);
+            return Ok();
         
         }
     }
